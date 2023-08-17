@@ -23,3 +23,7 @@ endif()
 
 add_executable(radio src/main.cpp src/audio.h)
 target_link_libraries(radio PRIVATE Threads::Threads)
+
+if(APPLE)
+  target_link_libraries(radio PRIVATE "-framework CoreFoundation -framework CoreAudio -framework AudioUnit")
+endif()
